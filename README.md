@@ -55,7 +55,7 @@ The app is now served on localhost:4200
 2. Running the Truffle tests:
 	```bash
 	truffle test
-	```
+  ```
 
 3. Running Protactor end-to-end tests
   ```bash
@@ -66,6 +66,9 @@ Using the Angular CLI you can build a distributable of your app. Will be placed 
   ```bash
   ng build
   ```
+  
+## FAQ
+
 * __Where can I find more documentation?__
 
 This Truffle box is a union of [Truffle](http://truffleframework.com/) and a React setup created with [Angular CLI](https://cli.angular.io/). 
