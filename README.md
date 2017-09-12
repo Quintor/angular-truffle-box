@@ -17,14 +17,18 @@ This project is generated with [Angular CLI](https://cli.angular.io/).
 	```bash
 	truffle unbox Quintor/angular-truffle-box
 	```
-
-3. Run your Ethereum client. For TestRPC:
+3. Install dependencies
+  ```bash
+  npm install
+  ```
+  
+4. Run your Ethereum client. For TestRPC:
 	```bash
 	testrpc
 	```
 Note the mnemonic 12-word phrase printed on startup, you will need it later.
 
-4. Compile and migrate your contracts.
+5. Compile and migrate your contracts.
 	```bash
 	truffle compile && truffle migrate
 	```
