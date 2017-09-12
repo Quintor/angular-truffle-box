@@ -7,38 +7,38 @@ This project is generated with [Angular CLI](https://cli.angular.io/).
 ## Building
 
 1. Install truffle, Angular CLI and an Ethereum client. If you don't have a test environment, we recommend Ethereum TestRPC
-	```javascript
-	npm install -g truffle
-	npm install -g @angular/cli
-	npm install -g ethereumjs-testrpc
-	```
+  ```bash
+  npm install -g truffle
+  npm install -g @angular/cli
+  npm install -g ethereumjs-testrpc
+  ```
 
 2. Download the box.
-	```bash
-	truffle unbox Quintor/angular-truffle-box
-	```
+  ```bash
+  truffle unbox Quintor/angular-truffle-box
+  ```
 3. Install dependencies
   ```bash
   npm install
   ```
   
 4. Run your Ethereum client. For TestRPC:
-	```bash
-	testrpc
-	```
+  ```bash
+  testrpc
+  ```
 Note the mnemonic 12-word phrase printed on startup, you will need it later.
 
 5. Compile and migrate your contracts.
-	```bash
-	truffle compile && truffle migrate
-	```
+  ```bash
+  truffle compile && truffle migrate
+  ```
 
 ## Running
 
 1. Run the app using Angular CLI:
-	```bash
-	ng serve
-	```
+  ```bash
+  ng serve
+  ```
 The app is now served on localhost:4200
 
 2. Connect to it by opening it in your browser and configuring MetaMask with the 12-word phrase from TestRPC.
@@ -48,21 +48,23 @@ The app is now served on localhost:4200
 ## Testing
 
 1. Running the Angular component tests:
-	```bash
-	ng test
-	```
+  ```bash
+  ng test
+  ```
 
 2. Running the Truffle tests:
-	```bash
-	truffle test
+  ```bash
+  truffle test
   ```
 
 3. Running Protactor end-to-end tests
+
   ```bash
   ng e2e
   ```
 ## Releasing
 Using the Angular CLI you can build a distributable of your app. Will be placed in `dist/`
+
   ```bash
   ng build
   ```
