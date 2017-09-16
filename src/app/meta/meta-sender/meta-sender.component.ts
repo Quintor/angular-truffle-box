@@ -17,10 +17,18 @@ export class MetaSenderComponent implements OnInit {
   ngOnInit(): void {
     console.log("OnInit: " + this.web3Service);
     console.log(this);
-    setInterval(() => this.refreshAccount(), 1000);
+    this.watchAccount();
+    this.MetaCoin = new Promise((resolve, reject) => {
+      setInterval(() => {
+        if (this.web3Service.ready) {
+          resolve(this.web3Service.MetaCoin);
+        }
+      }, 100)
+    });
   }
 
   accounts : string[];
+  MetaCoin : Promise<any>;
 
   model = {
     amount: 5,
@@ -31,15 +39,11 @@ export class MetaSenderComponent implements OnInit {
 
   status = "";
 
-  refreshAccount() {
-    this.web3Service.getAccounts().then((accounts) => {
+  watchAccount() {
+    this.web3Service.accountsObservable.subscribe((accounts) => {
       this.accounts = accounts;
-      if (!this.model.account) {
-        this.model.account = accounts[0];
-        this.refreshBalance();
-      }
-    }).catch(function(err) {
-      console.log("Error while getting account");
+      this.model.account = accounts[0];
+      this.refreshBalance();
     });
   }
 
@@ -48,6 +52,10 @@ export class MetaSenderComponent implements OnInit {
   };
 
   sendCoin() {
+    if (!this.MetaCoin) {
+      this.setStatus("Metacoin is not loaded, unable to send transaction");
+      return;
+    }
     let self = this;
     console.log("Sending coins" + self.model.amount + " to " + self.model.receiver);
 
@@ -57,8 +65,8 @@ export class MetaSenderComponent implements OnInit {
 
     this.setStatus("Initiating transaction... (please wait)");
 
-    this.web3Service.metaCoin().then(function(metaCoin) {
-      return metaCoin.deployed();
+    this.MetaCoin.then((contract) => {
+      return contract.deployed();
     }).then(function(metaCoinInstance) {
       return metaCoinInstance.sendCoin(receiver, amount, {from: self.model.account});
     }).then(function(success) {
@@ -81,8 +89,8 @@ export class MetaSenderComponent implements OnInit {
     let self = this;
     console.log("Refreshing balance");
 
-    this.web3Service.metaCoin().then(function(metaCoin) {
-      return metaCoin.deployed();
+    this.MetaCoin.then((contract) => {
+      return contract.deployed();
     }).then(function(metaCoinInstance) {
       return metaCoinInstance.getBalance.call(self.model.account, {from: self.model.account});
     }).then(function (value) {

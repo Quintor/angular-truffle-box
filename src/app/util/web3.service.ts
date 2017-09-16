@@ -1,17 +1,20 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable, OnInit, Output, EventEmitter} from '@angular/core';
 import {default as Web3} from 'web3';
 import {WindowRefService} from "./window-ref.service";
 
 import {default as contract} from 'truffle-contract'
 import metacoin_artifacts from '../../../build/contracts/MetaCoin.json'
+import {Subject} from "rxjs";
 
 @Injectable()
 export class Web3Service {
 
   private web3 : Web3;
   private accounts : string[];
-  private ready : boolean = false;
-  private MetaCoin;
+  public ready : boolean = false;
+  public MetaCoin : any;
+
+  public accountsObservable = new Subject<string[]>();
 
   constructor(private windowRef : WindowRefService) {
     this.MetaCoin = contract(metacoin_artifacts);
@@ -56,29 +59,13 @@ export class Web3Service {
         return;
       }
 
-      this.accounts = accs;
+      if (!this.accounts || this.accounts.length != accs.length || this.accounts[0] != accs[0]) {
+        console.log("Observed new accounts");
+        this.accountsObservable.next(accs);
+        this.accounts = accs;
+      }
+
       this.ready = true;
     });
   }
-
-  getAccounts() : Promise<string[]> {
-    return new Promise((resolve, reject) => {
-      setInterval(() => {
-        if (this.ready) {
-          return resolve(this.accounts);
-        }
-      }, 100);
-    });
-  }
-
-  metaCoin() : Promise<any> {
-    return new Promise((resolve, reject) => {
-      setInterval(()=> {
-        if (this.ready) {
-          return resolve(this.MetaCoin);
-        }
-      }, 100);
-    });
-  }
-
 }
