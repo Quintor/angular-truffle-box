@@ -69,6 +69,6 @@ Using the Angular CLI you can build a distributable of your app. Will be placed 
 
 * __Where can I find more documentation?__
 
-This Truffle box is a union of [Truffle](http://truffleframework.com/) and a React setup created with [Angular CLI](https://cli.angular.io/).
+This Truffle box is a union of [Truffle](http://truffleframework.com/) and an Angular setup created with [Angular CLI](https://cli.angular.io/).
 For solidity compilation and Ethereum related issues, try the [Truffle documentation](http://truffleframework.com/docs/).
 For Angular CLI and typescript issues, refer to the [Angular CLI documentation](https://github.com/angular/angular-cli/wiki)
