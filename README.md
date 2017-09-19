@@ -1,4 +1,4 @@
-# Angular Truffle Box
+# Truffle Box for Angular
 
 This Truffle Box provides a base for working with the Truffle Framework and Angular. 
 It provides a basic working example of the MetaCoin contracts with Angular components.
