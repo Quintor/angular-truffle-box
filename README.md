@@ -1,6 +1,6 @@
 # Truffle Box for Angular
 
-This Truffle Box provides a base for working with the Truffle Framework and Angular. 
+This Truffle Box provides a base for working with the Truffle Framework and Angular.
 It provides a basic working example of the MetaCoin contracts with Angular components.
 This project is generated with [Angular CLI](https://cli.angular.io/).
 
@@ -17,18 +17,14 @@ This project is generated with [Angular CLI](https://cli.angular.io/).
   ```bash
   truffle unbox Quintor/angular-truffle-box
   ```
-3. Install dependencies
-  ```bash
-  npm install
-  ```
-  
-4. Run your Ethereum client. For TestRPC:
+
+3. Run your Ethereum client. For TestRPC:
   ```bash
   testrpc
   ```
 Note the mnemonic 12-word phrase printed on startup, you will need it later.
 
-5. Compile and migrate your contracts.
+4. Compile and migrate your contracts.
   ```bash
   truffle compile && truffle migrate
   ```
@@ -68,11 +64,11 @@ Using the Angular CLI you can build a distributable of your app. Will be placed 
   ```bash
   ng build
   ```
-  
+
 ## FAQ
 
 * __Where can I find more documentation?__
 
-This Truffle box is a union of [Truffle](http://truffleframework.com/) and a React setup created with [Angular CLI](https://cli.angular.io/). 
-For solidity compilation and Ethereum related issues, try the [Truffle documentation](http://truffleframework.com/docs/). 
+This Truffle box is a union of [Truffle](http://truffleframework.com/) and a React setup created with [Angular CLI](https://cli.angular.io/).
+For solidity compilation and Ethereum related issues, try the [Truffle documentation](http://truffleframework.com/docs/).
 For Angular CLI and typescript issues, refer to the [Angular CLI documentation](https://github.com/angular/angular-cli/wiki)
