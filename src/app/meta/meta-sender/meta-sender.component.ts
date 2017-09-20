@@ -56,49 +56,48 @@ export class MetaSenderComponent implements OnInit {
       this.setStatus("Metacoin is not loaded, unable to send transaction");
       return;
     }
-    let self = this;
-    console.log("Sending coins" + self.model.amount + " to " + self.model.receiver);
+
+    console.log("Sending coins" + this.model.amount + " to " + this.model.receiver);
 
 
-    let amount = self.model.amount;
-    let receiver = self.model.receiver;
+    let amount = this.model.amount;
+    let receiver = this.model.receiver;
 
     this.setStatus("Initiating transaction... (please wait)");
 
     this.MetaCoin.then((contract) => {
       return contract.deployed();
-    }).then(function(metaCoinInstance) {
-      return metaCoinInstance.sendCoin(receiver, amount, {from: self.model.account});
-    }).then(function(success) {
+    }).then((metaCoinInstance) => {
+      return metaCoinInstance.sendCoin(receiver, amount, {from: this.model.account});
+    }).then((success) => {
       if (!success) {
-        self.setStatus("Transaction failed!");
+        this.setStatus("Transaction failed!");
       }
       else {
-        self.setStatus("Transaction complete!");
+        this.setStatus("Transaction complete!");
       }
 
-      self.refreshBalance();
-    }).catch(function(e) {
+      this.refreshBalance();
+    }).catch((e) => {
       console.log(e);
-      self.setStatus("Error sending coin; see log.");
+      this.setStatus("Error sending coin; see log.");
     });
 
   };
 
   refreshBalance() {
-    let self = this;
     console.log("Refreshing balance");
 
     this.MetaCoin.then((contract) => {
       return contract.deployed();
-    }).then(function(metaCoinInstance) {
-      return metaCoinInstance.getBalance.call(self.model.account, {from: self.model.account});
-    }).then(function (value) {
+    }).then((metaCoinInstance) => {
+      return metaCoinInstance.getBalance.call(this.model.account, {from: this.model.account});
+    }).then((value) => {
       console.log("Found balance: " + value);
-      self.model.balance = value.valueOf();
+      this.model.balance = value.valueOf();
     }).catch(function (e) {
       console.log(e);
-      self.setStatus("Error getting balance; see log.");
+      this.setStatus("Error getting balance; see log.");
     });
   };
 
