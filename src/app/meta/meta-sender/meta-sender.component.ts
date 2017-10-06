@@ -68,7 +68,7 @@ export class MetaSenderComponent implements OnInit {
     this.MetaCoin.then((contract) => {
       return contract.deployed();
     }).then((metaCoinInstance) => {
-      return metaCoinInstance.sendCoin(receiver, amount, {from: this.model.account});
+      return metaCoinInstance.sendCoin.sendTransaction(receiver, amount, {from: this.model.account});
     }).then((success) => {
       if (!success) {
         this.setStatus("Transaction failed!");
@@ -76,8 +76,6 @@ export class MetaSenderComponent implements OnInit {
       else {
         this.setStatus("Transaction complete!");
       }
-
-      this.refreshBalance();
     }).catch((e) => {
       console.log(e);
       this.setStatus("Error sending coin; see log.");
@@ -91,7 +89,7 @@ export class MetaSenderComponent implements OnInit {
     this.MetaCoin.then((contract) => {
       return contract.deployed();
     }).then((metaCoinInstance) => {
-      return metaCoinInstance.getBalance.call(this.model.account, {from: this.model.account});
+      return metaCoinInstance.getBalance.call(this.model.account);
     }).then((value) => {
       console.log("Found balance: " + value);
       this.model.balance = value.valueOf();
