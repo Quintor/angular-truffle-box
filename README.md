@@ -38,6 +38,12 @@ Note the mnemonic 12-word phrase printed on startup, you will need it later.
 The app is now served on localhost:4200
 
 2. Connect to it by opening it in your browser and configuring MetaMask with the 12-word phrase from TestRPC.
+2.1 To do this, copy one of the `Private Keys` and open MetaMask in your browser.
+2.2 Click the change account option and select `Import Account`
+2.3 Select `Private Key` and paste the private key you got from `testrpc` in here. 
+2.4 Click `Import` and you should be logged in with the test account. 
+2.4.1 The available test accounts will expire whenever you restart `testrpc`.
+2.4.2 In order to receive the same test accounnts every time you start `testrpc`, start it with a seed like this: `testrpc --seed 0`
 
 3. Send MetaCoins!
 
