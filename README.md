@@ -4,6 +4,12 @@ This Truffle Box provides a base for working with the Truffle Framework and Angu
 It provides a basic working example of the MetaCoin contracts with Angular components.
 This project is generated with [Angular CLI](https://cli.angular.io/).
 
+## Prerequisites
+
+In order to run the Truffle box, you will need [Node.js](https://nodejs.org) (version 6.11.x). This will include `npm`, needed
+to install dependencies. In order install these dependencies, you will also need [Python](https://www.python.org) (version 2.7.x) and
+[git](https://git-scm.com/downloads).
+
 ## Building
 
 1. Install truffle, Angular CLI and an Ethereum client. If you don't have a test environment, we recommend Ethereum TestRPC
