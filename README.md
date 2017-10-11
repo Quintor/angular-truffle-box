@@ -29,6 +29,15 @@ Note the mnemonic 12-word phrase printed on startup, you will need it later.
   truffle compile && truffle migrate
   ```
 
+## Configuration
+1. In order to connect with the Ethereum network, you will need to configure MetaMask
+2. Log into the `testrpc` test accounts in MetaMask, using the 12-word phrase printed earlier.
+    1. A detailed explaination of how to do this can be found [here](http://truffleframework.com/docs/advanced/truffle-with-metamask#using-the-browser-extension)
+        1. Normally, the available test accounts will change whenever you restart `testrpc`.
+        2. In order to receive the same test accounts every time you start `testrpc`, start it with a seed like this: `testrpc --seed 0` or `testrpc -m "put your mnemonic phrase here needs twelve words to work with MetaMask"`
+3. Point MetaMask to `testrpc` by connecting to the network `localhost:8545` 
+
+
 ## Running
 
 1. Run the app using Angular CLI:
@@ -37,11 +46,7 @@ Note the mnemonic 12-word phrase printed on startup, you will need it later.
   ```
 The app is now served on localhost:4200
 
-2. Connect to it by opening it in your browser and configuring MetaMask with the 12-word phrase from TestRPC.
-3. Log into the `testrpc` test accounts using MetaMask. 
-    1. A detailed explaination of how to do this can be found [here](http://truffleframework.com/docs/advanced/truffle-with-metamask#using-the-browser-extension)
-        1. Note: The available test accounts will expire whenever you restart `testrpc`.
-        2. In order to receive the same test accounts every time you start `testrpc`, start it with a seed like this: `testrpc --seed 0`
+2. Making sure you have configured MetaMask, visit http://localhost:4200 in your browser.
 
 3. Send MetaCoins!
 
