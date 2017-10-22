@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {WindowRefService} from './window-ref.service';
-import {Web3Service} from "./web3.service";
+import {Web3Service} from './web3.service';
+
 @NgModule({
   imports: [
     CommonModule
@@ -12,4 +13,5 @@ import {Web3Service} from "./web3.service";
   ],
   declarations: []
 })
-export class UtilModule { }
+export class UtilModule {
+}
