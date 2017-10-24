@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env sh
 
 npm install -g @angular/cli
 npm install -g truffle
