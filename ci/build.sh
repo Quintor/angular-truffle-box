@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
-truffle test
+set -x
+set -e 
+
+testrpc > /dev/null &
 ng test
 ng e2e
 ng lint
+truffle test
