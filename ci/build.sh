@@ -3,7 +3,7 @@ set -x
 set -e 
 
 testrpc > /dev/null &
-ng test
+npm test
 ng e2e
 ng lint
 truffle test
