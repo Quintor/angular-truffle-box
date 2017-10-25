@@ -1,20 +1,20 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import {Web3Service} from "./web3.service";
+import {Web3Service} from './web3.service';
 
 declare let window: any;
 
 describe('Web3Service', () => {
   beforeEach(() => {
-    let currentProvider = {
+    const currentProvider = {
       test: 5
     };
 
-    let getAccounts = (callback) => {
+    const getAccounts = (callback) => {
           callback(0, ['0xdeadbeefdeadbeefdeadbeef']);
         };
 
-    let mockWeb3 = {
+    const mockWeb3 = {
       currentProvider: currentProvider,
       eth: {
         getAccounts: getAccounts
