@@ -27,6 +27,6 @@ describe('Web3Service', () => {
   });
 
   it('should be created', inject([Web3Service], (service: Web3Service) => {
-    expect(service).toBeFalsy();
+    expect(service).toBeTruthy();
   }));
 });
