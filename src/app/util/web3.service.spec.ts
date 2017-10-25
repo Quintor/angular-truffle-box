@@ -7,7 +7,7 @@ declare let window: any;
 describe('Web3Service', () => {
   beforeEach(() => {
     let currentProvider = {
-      test: 5 
+      test: 5
     };
 
     let getAccounts = (callback) => {
@@ -24,18 +24,9 @@ describe('Web3Service', () => {
     TestBed.configureTestingModule({
       providers: [Web3Service]
     });
-
-    
   });
 
   it('should be created', inject([Web3Service], (service: Web3Service) => {
     expect(service).toBeTruthy();
-  }));
-
-  it('should inject web3', inject([Web3Service], (service: Web3Service) => {
-    for (var property in service.MetaCoin) {
-      console.log(property);
-    }
-    expect(service.MetaCoin).toBeTruthy();
   }));
 });
