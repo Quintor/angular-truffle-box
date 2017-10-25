@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {default as Web3} from 'web3';
+import Web3 from 'web3';
 import {default as contract} from 'truffle-contract';
 import metacoin_artifacts from '../../../build/contracts/MetaCoin.json';
 import {Subject} from 'rxjs/Rx';
