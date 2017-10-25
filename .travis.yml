@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+- "lts/*"
+install: ./ci/install-deps.sh
+script: ./ci/build.sh
+cache:
+  directories:
+    - node_modules
