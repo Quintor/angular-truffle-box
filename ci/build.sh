@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 set -x
 set -e 
+truffle compile
 
 testrpc > /dev/null &
 npm test
