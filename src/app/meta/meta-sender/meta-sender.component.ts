@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Web3Service} from '../../util/web3.service';
+import metacoin_artifacts from '../../../../build/contracts/MetaCoin.json';
 
 @Component({
   selector: 'app-meta-sender',
@@ -8,7 +9,7 @@ import {Web3Service} from '../../util/web3.service';
 })
 export class MetaSenderComponent implements OnInit {
   accounts: string[];
-  MetaCoin: Promise<any>;
+  MetaCoin: any;
 
   model = {
     amount: 5,
@@ -27,13 +28,10 @@ export class MetaSenderComponent implements OnInit {
     console.log('OnInit: ' + this.web3Service);
     console.log(this);
     this.watchAccount();
-    this.MetaCoin = new Promise((resolve, reject) => {
-      setInterval(() => {
-        if (this.web3Service.ready) {
-          resolve(this.web3Service.MetaCoin);
-        }
-      }, 100);
-    });
+    this.web3Service.artifactsToContract(metacoin_artifacts)
+      .then((MetaCoinAbstraction) => {
+        this.MetaCoin = MetaCoinAbstraction;
+      });
   }
 
   watchAccount() {
@@ -48,7 +46,7 @@ export class MetaSenderComponent implements OnInit {
     this.status = status;
   }
 
-  sendCoin() {
+  async sendCoin() {
     if (!this.MetaCoin) {
       this.setStatus('Metacoin is not loaded, unable to send transaction');
       return;
@@ -60,37 +58,33 @@ export class MetaSenderComponent implements OnInit {
     console.log('Sending coins' + amount + ' to ' + receiver);
 
     this.setStatus('Initiating transaction... (please wait)');
+    try {
+      const deployedMetaCoin = await this.MetaCoin.deployed();
+      const transaction = await deployedMetaCoin.sendCoin.sendTransaction(receiver, amount, {from: this.model.account});
 
-    this.MetaCoin.then((contract) => {
-      return contract.deployed();
-    }).then((metaCoinInstance) => {
-      return metaCoinInstance.sendCoin.sendTransaction(receiver, amount, {from: this.model.account});
-    }).then((success) => {
-      if (!success) {
+      if (!transaction) {
         this.setStatus('Transaction failed!');
       } else {
         this.setStatus('Transaction complete!');
       }
-    }).catch((e) => {
+    } catch (e) {
       console.log(e);
       this.setStatus('Error sending coin; see log.');
-    });
+    }
   }
 
-  refreshBalance() {
+  async refreshBalance() {
     console.log('Refreshing balance');
 
-    this.MetaCoin.then((contract) => {
-      return contract.deployed();
-    }).then((metaCoinInstance) => {
-      return metaCoinInstance.getBalance.call(this.model.account);
-    }).then((value) => {
-      console.log('Found balance: ' + value);
-      this.model.balance = value.valueOf();
-    }).catch(function (e) {
+    try {
+      const deployedMetaCoin = await this.MetaCoin.deployed();
+      const metaCoinBalance = await deployedMetaCoin.getBalance.call(this.model.account);
+      console.log('Found balance: ' + metaCoinBalance);
+      this.model.balance = metaCoinBalance;
+    } catch (e) {
       console.log(e);
       this.setStatus('Error getting balance; see log.');
-    });
+    }
   }
 
   clickAddress(e) {

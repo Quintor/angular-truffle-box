@@ -14,7 +14,7 @@ to install dependencies. In order install these dependencies, you will also need
 
 1. Install truffle, Angular CLI and an Ethereum client. If you don't have a test environment, we recommend Ethereum TestRPC
   ```bash
-  npm install -g truffle
+  npm install -g truffle@3.4.6
   npm install -g @angular/cli
   npm install -g ethereumjs-testrpc
   ```
