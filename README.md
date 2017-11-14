@@ -14,9 +14,8 @@ to install dependencies. In order install these dependencies, you will also need
 
 1. Install truffle, Angular CLI and an Ethereum client. If you don't have a test environment, we recommend Ethereum TestRPC
   ```bash
-  npm install -g truffle
-  npm install -g @angular/cli
-  npm install -g ethereumjs-testrpc
+  npm install -g truffle@^4.0.0
+  npm install -g @angular/cli@1.4.9
   ```
 
 2. Download the box.
@@ -24,24 +23,23 @@ to install dependencies. In order install these dependencies, you will also need
   truffle unbox Quintor/angular-truffle-box
   ```
 
-3. Run your Ethereum client. For TestRPC:
+3. Start a local test network with `truffle develop`
   ```bash
-  testrpc
+  truffle develop
   ```
 Note the mnemonic 12-word phrase printed on startup, you will need it later.
 
-4. Compile and migrate your contracts.
-  ```bash
-  truffle compile && truffle migrate
+4. Compile and migrate your contracts, using the `truffle develop` console
+  ```
+  truffle(develop)>compile
+  truffle(develop)>migrate
   ```
 
 ## Configuration
 1. In order to connect with the Ethereum network, you will need to configure MetaMask
-2. Log into the `testrpc` test accounts in MetaMask, using the 12-word phrase printed earlier.
-    1. A detailed explaination of how to do this can be found [here](http://truffleframework.com/docs/advanced/truffle-with-metamask#using-the-browser-extension)
-        1. Normally, the available test accounts will change whenever you restart `testrpc`.
-        2. In order to receive the same test accounts every time you start `testrpc`, start it with a seed like this: `testrpc --seed 0` or `testrpc -m "put your mnemonic phrase here needs twelve words to work with MetaMask"`
-3. Point MetaMask to `testrpc` by connecting to the network `localhost:8545` 
+2. Log into the `truffle develop` test accounts in MetaMask, using the 12-word phrase printed earlier.
+    * A detailed explaination of how to do this can be found [here](http://truffleframework.com/docs/advanced/truffle-with-metamask#using-the-browser-extension)
+3. Point MetaMask to the `truffle develop` RPC server by connecting to the network `http://localhost:9545`, using the Custom RPC option.
 
 
 ## Running
@@ -73,6 +71,7 @@ The app is now served on localhost:4200
   ```bash
   ng e2e
   ```
+  
 ## Releasing
 Using the Angular CLI you can build a distributable of your app. Will be placed in `dist/`
 
