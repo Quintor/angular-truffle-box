@@ -1,11 +1,12 @@
 #!/usr/bin/env sh
 set -x
 set -e
+testrpc -l 100000000 > /dev/null &
+TESTRPC_PID=$!
+
 truffle compile
 truffle test
 
-testrpc > /dev/null &
-TESTRPC_PID=$!
 npm test
 ng e2e
 ng lint
