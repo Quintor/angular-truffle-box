@@ -1,11 +1,12 @@
 #!/usr/bin/env sh
 set -x
 set -e
+testrpc -l 100000000 -m "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat" > /dev/null &
+TESTRPC_PID=$!
+
 truffle compile
 truffle test
 
-testrpc -m "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat" > /dev/null &
-TESTRPC_PID=$!
 npm test
 ng e2e
 ng lint
