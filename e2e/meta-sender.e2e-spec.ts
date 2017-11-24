@@ -13,7 +13,7 @@ describe('angular-truffle-box meta-sender', () => {
     page.setAddress(0);
     browser.driver.sleep(100);
 
-    expect(page.getBalance()).toBe('1000');
+    expect(page.getBalance()).toBe('10000');
 
     page.setAmount('50');
     page.setToAddress('0xf17f52151ebef6c7334fad080c5704d77216b732');
