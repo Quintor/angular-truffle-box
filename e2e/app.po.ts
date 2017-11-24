@@ -21,7 +21,7 @@ export class AppPage {
 
   setAddress(index: number) {
     return element.all(by.tagName('option')).filter((
-      (element, i) => {
+      (el, i) => {
         return index === i;
       }
     )).click();
