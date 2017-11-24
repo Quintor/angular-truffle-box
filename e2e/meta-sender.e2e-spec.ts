@@ -1,4 +1,5 @@
 import { AppPage } from './app.po';
+import { browser } from 'protractor';
 
 describe('angular-truffle-box meta-sender', () => {
   let page: AppPage;
@@ -9,7 +10,21 @@ describe('angular-truffle-box meta-sender', () => {
 
   it('should transfer money', () => {
     page.navigateTo();
-    page.setAmount('50')
-    page.setToAddress()
+    page.setAddress(0);
+    browser.driver.sleep(100);
+
+    expect(page.getBalance()).toBe('1000');
+
+    page.setAmount('50');
+    page.setToAddress('0xf17f52151ebef6c7334fad080c5704d77216b732');
+    page.clickSend();
+
+    browser.driver.sleep(1000);
+    page.navigateTo();
+
+    expect(page.getBalance()).toBe('9950');
+    page.setAddress(1);
+    browser.driver.sleep(100);
+    expect(page.getBalance()).toBe('50');
   });
 });

@@ -11,8 +11,20 @@ export class AppPage {
     return element(by.css('h1')).getText();
   }
 
-  setAddress(address: string) {
-    return element(by.cssContainingText('select', address)).click();
+  getButton() {
+    return element(by.id('send'));
+  }
+
+  getBalance() {
+    return element(by.id('balance')).getText();
+  }
+
+  setAddress(index: number) {
+    return element.all(by.tagName('option')).filter((
+      (element, i) => {
+        return index === i;
+      }
+    )).click();
   }
 
   setToAddress(address: string) {
@@ -21,5 +33,9 @@ export class AppPage {
 
   setAmount(amount: string) {
     return element(by.id('amount')).sendKeys(amount);
+  }
+
+  clickSend() {
+    return this.getButton().click();
   }
 }
