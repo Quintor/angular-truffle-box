@@ -26,7 +26,7 @@ to install dependencies. In order install these dependencies, you will also need
 
 3. Run your Ethereum client. For TestRPC:
   ```bash
-  testrpc
+  testrpc -l 1000000000
   ```
 Note the mnemonic 12-word phrase printed on startup, you will need it later.
 
