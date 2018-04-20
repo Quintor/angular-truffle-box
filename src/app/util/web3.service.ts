@@ -1,13 +1,15 @@
 import {Injectable} from '@angular/core';
 import * as contract from 'truffle-contract';
 import {Subject} from 'rxjs/Rx';
-import Web3 from 'web3';
+declare let require: any;
+const Web3 = require('web3');
+
 
 declare let window: any;
 
 @Injectable()
 export class Web3Service {
-  private web3: Web3;
+  private web3: any;
   private accounts: string[];
   public ready = false;
   public MetaCoin: any;
