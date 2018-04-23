@@ -3,10 +3,26 @@ import {CommonModule} from '@angular/common';
 import {MetaSenderComponent} from './meta-sender/meta-sender.component';
 import {UtilModule} from '../util/util.module';
 import {RouterModule} from '@angular/router';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatOptionModule,
+  MatSelectModule
+} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
     RouterModule,
     UtilModule
   ],

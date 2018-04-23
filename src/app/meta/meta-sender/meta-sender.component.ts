@@ -78,6 +78,7 @@ export class MetaSenderComponent implements OnInit {
 
     try {
       const deployedMetaCoin = await this.MetaCoin.deployed();
+      console.log(deployedMetaCoin);
       const metaCoinBalance = await deployedMetaCoin.getBalance.call(this.model.account);
       console.log('Found balance: ' + metaCoinBalance);
       this.model.balance = metaCoinBalance;
@@ -85,11 +86,6 @@ export class MetaSenderComponent implements OnInit {
       console.log(e);
       this.setStatus('Error getting balance; see log.');
     }
-  }
-
-  clickAddress(e) {
-    this.model.account = e.target.value;
-    this.refreshBalance();
   }
 
   setAmount(e) {
