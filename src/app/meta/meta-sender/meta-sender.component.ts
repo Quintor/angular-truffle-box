@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Web3Service} from '../../util/web3.service';
-import metacoin_artifacts from '../../../../build/contracts/MetaCoin.json';
+
+declare let require: any;
+const metacoin_artifacts = require('../../../../build/contracts/MetaCoin.json');
 
 @Component({
   selector: 'app-meta-sender',
