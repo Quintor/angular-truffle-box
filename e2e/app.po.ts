@@ -20,7 +20,7 @@ export class AppPage {
   }
 
   clickSelect() {
-    return element(by.id("address-selector")).click();
+    return element(by.id('address-selector')).click();
   }
 
   setAddress(index: number) {
