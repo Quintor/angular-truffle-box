@@ -23,6 +23,7 @@ describe('angular-truffle-box meta-sender', () => {
     page.navigateTo();
 
     expect(page.getBalance()).toBe('9950');
+    page.clickSelect();
     page.setAddress(1);
     browser.driver.sleep(100);
     expect(page.getBalance()).toBe('50');

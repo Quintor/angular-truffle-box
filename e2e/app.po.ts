@@ -8,7 +8,7 @@ export class AppPage {
   }
 
   getHeader() {
-    return element(by.css('h1')).getText();
+    return element(by.css('mat-toolbar')).getText();
   }
 
   getButton() {
@@ -19,8 +19,12 @@ export class AppPage {
     return element(by.id('balance')).getText();
   }
 
+  clickSelect() {
+    return element(by.id('address-selector')).click();
+  }
+
   setAddress(index: number) {
-    return element.all(by.tagName('option')).filter((
+    return element.all(by.tagName('mat-option')).filter((
       (el, i) => {
         return index === i;
       }
