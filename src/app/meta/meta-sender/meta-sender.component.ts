@@ -81,6 +81,7 @@ export class MetaSenderComponent implements OnInit {
     try {
       const deployedMetaCoin = await this.MetaCoin.deployed();
       console.log(deployedMetaCoin);
+      console.log("Account", this.model.account);
       const metaCoinBalance = await deployedMetaCoin.getBalance.call(this.model.account);
       console.log('Found balance: ' + metaCoinBalance);
       this.model.balance = metaCoinBalance;

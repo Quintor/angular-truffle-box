@@ -7,7 +7,13 @@ import { AppComponent } from './app.component';
 import {MetaModule} from './meta/meta.module';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatToolbarModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -20,6 +26,7 @@ import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule } fr
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatToolbarModule,
     BrowserModule,
     FormsModule,
     HttpModule,
