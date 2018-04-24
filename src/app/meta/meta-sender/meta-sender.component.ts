@@ -46,7 +46,7 @@ export class MetaSenderComponent implements OnInit {
   }
 
   setStatus(status) {
-    this.matSnackBar.open(status, null, {duration:3000});
+    this.matSnackBar.open(status, null, {duration: 3000});
   }
 
   async sendCoin() {
