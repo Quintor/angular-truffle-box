@@ -48,7 +48,7 @@ Note the mnemonic 12-word phrase printed on startup, you will need it later.
 
 1. Run the app using Angular CLI:
   ```bash
-  ng serve
+  npm start
   ```
 The app is now served on localhost:4200
 
