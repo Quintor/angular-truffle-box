@@ -6,7 +6,7 @@ This project is generated with [Angular CLI](https://cli.angular.io/).
 
 ## Prerequisites
 
-In order to run the Truffle box, you will need [Node.js](https://nodejs.org) (tested with version 8.9.x). This will include `npm`, needed
+In order to run the Truffle box, you will need [Node.js](https://nodejs.org) (tested with version 10.x.y). This will include `npm`, needed
 to install dependencies. In order install these dependencies, you will also need [Python](https://www.python.org) (version 2.7.x) and
 [git](https://git-scm.com/downloads). You will also need the [MetaMask](https://metamask.io/) plugin for Chrome.
 
