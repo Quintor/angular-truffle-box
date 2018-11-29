@@ -6,7 +6,7 @@ This project is generated with [Angular CLI](https://cli.angular.io/).
 
 ## Prerequisites
 
-In order to run the Truffle box, you will need [Node.js](https://nodejs.org) (tested with version 8.9.x). This will include `npm`, needed
+In order to run the Truffle box, you will need [Node.js](https://nodejs.org) (tested with version 10.x.y). This will include `npm`, needed
 to install dependencies. In order install these dependencies, you will also need [Python](https://www.python.org) (version 2.7.x) and
 [git](https://git-scm.com/downloads). You will also need the [MetaMask](https://metamask.io/) plugin for Chrome.
 
@@ -87,3 +87,11 @@ Using the Angular CLI you can build a distributable of your app. Will be placed 
 This Truffle box is a union of [Truffle](http://truffleframework.com/) and an Angular setup created with [Angular CLI](https://cli.angular.io/).
 For solidity compilation and Ethereum related issues, try the [Truffle documentation](http://truffleframework.com/docs/).
 For Angular CLI and typescript issues, refer to the [Angular CLI documentation](https://github.com/angular/angular-cli/wiki)
+
+
+* __How do I get this to work on Windows?__
+
+Possible issues:
+
+- If you're missing a C++ compiler, run `npm install --global --production windows-build-tools` in a cmd with administrative rights.
+- If the `truffle.js` file opens when you're trying to run truffle commands, rename the file to `truffle-config.js`
