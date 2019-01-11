@@ -26,9 +26,11 @@
     "@angular/platform-server": "7.1.0",
     "@angular/router": "7.1.0",
     "core-js": "^2.5.7",
+    "ethers": "^4.0.20",
     "rxjs": "^6.3.3",
+    "truffle-contract": "^4.0.1",
     "tslib": "^1.9.0",
-    "web3": "1.0.0-beta.36",
+    "web3": "1.0.0-beta.37",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
@@ -51,7 +53,6 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "^5.4.1",
     "protractor-console-plugin": "^0.1.1",
-    "truffle-contract": "^3.0.6",
     "ts-node": "^3.3.0",
     "tslint": "^5.11.0",
     "typescript": "3.1.6",

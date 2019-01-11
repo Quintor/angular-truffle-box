@@ -21,6 +21,9 @@ describe('angular-truffle-box meta-sender', () => {
 
     browser.driver.sleep(1000);
 
+    // Auto-refresh is broken in test for some reason
+    page.navigateTo();
+
     expect(page.getBalance()).toBe('9950');
     page.clickSelect();
     page.setAddress(1);
