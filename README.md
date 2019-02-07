@@ -88,6 +88,15 @@ This Truffle box is a union of [Truffle](http://truffleframework.com/) and an An
 For solidity compilation and Ethereum related issues, try the [Truffle documentation](http://truffleframework.com/docs/).
 For Angular CLI and typescript issues, refer to the [Angular CLI documentation](https://github.com/angular/angular-cli/wiki)
 
+* __Common errors and their solutions__
+
+| Error | Solution |
+|-------|----------|
+| `Module not found: Error: Can't resolve '../../../../build/contracts/MetaCoin.json'` during `ng serve` | Run `truffle compile` |
+| `Error: the tx doesn't have the correct nonce.` in MetaMask | Reset MetaMask: Settings -> Reset Account |
+| `Error getting balance; see log.` in UI, with `Error: MetaCoin has not been deployed to detected network (network/artifact mismatch)` in browser console | Ensure you have started ganache, run `truffle migrate` and configured MetaMask to point to ganache |
+
+
 
 * __How do I get this to work on Windows?__
 
