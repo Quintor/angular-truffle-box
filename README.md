@@ -19,9 +19,9 @@ to install dependencies. In order install these dependencies, you will also need
   npm install -g ganache-cli
   ```
 
-2. Download the box.
+2. Install the dependencies.
   ```bash
-  truffle unbox Quintor/angular-truffle-box
+  npm install
   ```
 
 3. Run your Ethereum client. For Ganache CLI:
