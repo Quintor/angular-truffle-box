@@ -5,10 +5,6 @@ language: node_js
 node_js:
     - "lts/*"
 install: ./ci/install-deps.sh
-before_script:
-    - LATEST_CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"`
-    - curl "https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
-    - unzip chromedriver_linux64.zip -d ~/bin
 script: ./ci/build.sh
 cache:
   directories:
