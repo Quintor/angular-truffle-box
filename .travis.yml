@@ -3,10 +3,12 @@ addons:
   chrome: stable
 language: node_js
 node_js:
-- "lts/*"
+    - "lts/*"
 install: ./ci/install-deps.sh
 before_script:
-    - chromedriver-update 77.0.3865.40
+    - LATEST_CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"`
+    - curl "https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
+    - unzip chromedriver_linux64.zip -d ~/bin
 script: ./ci/build.sh
 cache:
   directories:
