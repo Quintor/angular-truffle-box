@@ -5,6 +5,8 @@ language: node_js
 node_js:
 - "lts/*"
 install: ./ci/install-deps.sh
+before_script:
+    - chromedriver-update 77.0.3865.40
 script: ./ci/build.sh
 cache:
   directories:
