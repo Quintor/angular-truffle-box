@@ -19,6 +19,7 @@ describe('Web3Service', () => {
   }));
 
   it('should inject a default web3 on a contract', inject([Web3Service], (service: Web3Service) => {
+    window.web3 = undefined;
     service.bootstrapWeb3();
 
     return service.artifactsToContract(metacoin_artifacts).then((abstraction) => {

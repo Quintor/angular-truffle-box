@@ -3,7 +3,7 @@ addons:
   chrome: stable
 language: node_js
 node_js:
-- "lts/*"
+    - "lts/*"
 install: ./ci/install-deps.sh
 script: ./ci/build.sh
 cache:
