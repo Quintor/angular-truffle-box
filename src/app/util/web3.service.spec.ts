@@ -19,7 +19,7 @@ describe('Web3Service', () => {
   }));
 
   it('should inject a default web3 on a contract', inject([Web3Service], (service: Web3Service) => {
-    window.web3 = undefined;
+    window.ethereum = undefined;
     service.bootstrapWeb3();
 
     return service.artifactsToContract(metacoin_artifacts).then((abstraction) => {
@@ -28,9 +28,7 @@ describe('Web3Service', () => {
   }));
 
   it('should inject a the window web3 on a contract', inject([Web3Service], (service: Web3Service) => {
-    window.web3 = {
-      currentProvider: new Web3.providers.HttpProvider('http://localhost:1337')
-    };
+    window.ethereum = new Web3.providers.HttpProvider('http://localhost:1337');
 
     service.bootstrapWeb3();
 
