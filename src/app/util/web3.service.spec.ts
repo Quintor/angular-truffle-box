@@ -29,6 +29,7 @@ describe('Web3Service', () => {
 
   it('should inject a the window web3 on a contract', inject([Web3Service], (service: Web3Service) => {
     window.ethereum = new Web3.providers.HttpProvider('http://localhost:1337');
+    window.ethereum.enable = async () => true;
 
     service.bootstrapWeb3();
 

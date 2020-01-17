@@ -26,7 +26,7 @@ export class Web3Service {
       // Use Mist/MetaMask's provider
       window.ethereum.enable().then(() => {
         this.web3 = new Web3(window.ethereum);
-      })
+      });
     } else {
       console.log('No web3? You should consider trying MetaMask!');
 
