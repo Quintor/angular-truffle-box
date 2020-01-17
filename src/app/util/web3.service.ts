@@ -22,9 +22,11 @@ export class Web3Service {
 
   public bootstrapWeb3() {
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-    if (typeof window.web3 !== 'undefined') {
+    if (typeof window.ethereum !== 'undefined') {
       // Use Mist/MetaMask's provider
-      this.web3 = new Web3(window.web3.currentProvider);
+      window.ethereum.enable().then(() => {
+        this.web3 = new Web3(window.ethereum);
+      });
     } else {
       console.log('No web3? You should consider trying MetaMask!');
 
@@ -50,28 +52,23 @@ export class Web3Service {
 
   }
 
-  private refreshAccounts() {
-    this.web3.eth.getAccounts((err, accs) => {
-      console.log('Refreshing accounts');
-      if (err != null) {
-        console.warn('There was an error fetching your accounts.');
-        return;
-      }
+  private async refreshAccounts() {
+    const accs = await this.web3.eth.getAccounts();
+    console.log('Refreshing accounts');
 
-      // Get the initial account balance so it can be displayed.
-      if (accs.length === 0) {
-        console.warn('Couldn\'t get any accounts! Make sure your Ethereum client is configured correctly.');
-        return;
-      }
+    // Get the initial account balance so it can be displayed.
+    if (accs.length === 0) {
+      console.warn('Couldn\'t get any accounts! Make sure your Ethereum client is configured correctly.');
+      return;
+    }
 
-      if (!this.accounts || this.accounts.length !== accs.length || this.accounts[0] !== accs[0]) {
-        console.log('Observed new accounts');
+    if (!this.accounts || this.accounts.length !== accs.length || this.accounts[0] !== accs[0]) {
+      console.log('Observed new accounts');
 
-        this.accountsObservable.next(accs);
-        this.accounts = accs;
-      }
+      this.accountsObservable.next(accs);
+      this.accounts = accs;
+    }
 
-      this.ready = true;
-    });
+    this.ready = true;
   }
 }
