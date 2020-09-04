@@ -26,7 +26,7 @@
     "@angular/router": "8.2.0",
     "core-js": "2.5.7",
     "ethers": "^4.0.37",
-    "node-sass": "4.12.0",
+    "node-sass": "4.13.1",
     "rxjs": "^6.5.3",
     "@truffle/contract": "^4.0.33",
     "tslib": "^1.10.0",
